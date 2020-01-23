@@ -174,7 +174,7 @@ extension Data {
         let streamPointer = UnsafeMutablePointer<compression_stream>.allocate(capacity: 1)
         defer { streamPointer.deallocate() }
         var stream = streamPointer.pointee
-        var status = compression_stream_init(&stream, operation, COMPRESSION_ZLIB)
+        var status = compression_stream_init(&stream, operation, COMPRESSION_LZFSE)
         guard status != COMPRESSION_STATUS_ERROR else { throw CompressionError.invalidStream }
         defer { compression_stream_destroy(&stream) }
         stream.src_size = 0
