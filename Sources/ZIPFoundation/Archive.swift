@@ -32,6 +32,7 @@ public enum CompressionMethod: UInt16 {
     case none = 0
     /// Indicates that contents of an `Entry` have been compressed with a zlib compatible Deflate algorithm.
     case deflate = 8
+    case lzfse = 99
 }
 
 /// A sequence of uncompressed or compressed ZIP entries.

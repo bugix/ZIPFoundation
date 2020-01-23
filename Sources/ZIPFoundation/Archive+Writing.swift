@@ -257,7 +257,7 @@ extension Archive {
                 (sizeWritten, checksum) = try self.writeUncompressed(size: localFileHeader.uncompressedSize,
                                                                      bufferSize: bufferSize,
                                                                      progress: progress, provider: provider)
-            case .deflate:
+            case .deflate, .lzfse:
                 (sizeWritten, checksum) = try self.writeCompressed(size: localFileHeader.uncompressedSize,
                                                                    bufferSize: bufferSize,
                                                                    progress: progress, provider: provider)

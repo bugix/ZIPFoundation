@@ -86,7 +86,7 @@ extension Archive {
             switch compressionMethod {
             case .none: checksum = try self.readUncompressed(entry: entry, bufferSize: bufferSize,
                                                              skipCRC32: skipCRC32, progress: progress, with: consumer)
-            case .deflate: checksum = try self.readCompressed(entry: entry, bufferSize: bufferSize,
+            case .deflate, .lzfse: checksum = try self.readCompressed(entry: entry, bufferSize: bufferSize,
                                                               skipCRC32: skipCRC32, progress: progress, with: consumer)
             }
         case .directory:
